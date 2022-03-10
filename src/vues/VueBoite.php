@@ -21,7 +21,8 @@ class VueBoite
 
 
     public function vueUnProduit($prod): string {
-        if ($prod != null) {
+      
+        if (isset($prod)) {
             return <<<END
         
                     <div class="col mb-5"> 
@@ -139,7 +140,7 @@ END;
     {
 
 
-
+        var_dump($this->tab);
         $content = "";
 
         switch ($select){

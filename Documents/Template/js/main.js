@@ -32,7 +32,7 @@ window.addEventListener('load', (e) => {
 
             //document.location.href = `/afficherPanier`;
             const xhttp = new XMLHttpRequest();
-            xhttp.open('POST', 'http://localhost:8080/afficherPanier');
+            xhttp.open('POST', '/afficherPanier');
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send(`tab=${panier.tab}`);
             });

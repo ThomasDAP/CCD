@@ -1,6 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 use custumbox\models\produit;
+
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
@@ -32,11 +33,14 @@ $app->get('/recupererProduits',
     });
 
 $app->post('/afficherPanier', function (Request $rq, Response $rs, $args): Response {
-    $data = $_POST['tab'];
-    $tab = json_encode($data);
+    $tab = [];
+    if (isset($_POST['tab'])){
+        $tab = json_encode($_POST['tab']);
+    }
+
 
     var_dump($tab);
-    $vueBoite = new \custumbox\vues\VueBoite($tab);
+    $vueBoite = new \custumbox\vues\VueBoite((array)$tab);
     $rs->getBody()->write($vueBoite->render(1));
     return $rs;
     });
