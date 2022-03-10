@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+use custumbox\models\produit;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
@@ -18,6 +19,17 @@ $app->get('/',
         return $rs->write("aled");
 
     });
+
+
+
+$app->get('/recupererProduits',
+    function (Request $rq, Response $rs, $args): Response {
+        $prods = produit::all();
+        return $rs->withJson($prods);
+
+    });
+
+
 try {
     $app->run();
 } catch (Throwable $e) {
