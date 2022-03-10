@@ -2,8 +2,8 @@ let tab = [];
 
 function ajouterPanier(prod){
 
-        console.log("Ajout au panier de : " + prod.nom);
-        let objTrouve = tab.find(e => e.produit.nom === prod.nom);
+        console.log("Ajout au panier de : " + prod.titre);
+        let objTrouve = tab.find(e => e.produit.titre === prod.titre);
 
         if (objTrouve) {
             let idxObj = tab.indexOf(objTrouve);
@@ -18,7 +18,9 @@ function ajouterPanier(prod){
 
         }
 
-
+        window.sessionStorage.setItem('tabPanier', JSON.stringify(tab));
+        console.log(tab);
+        console.log(JSON.parse(window.sessionStorage.getItem('tabPanier')));
         return tab;
 
 
@@ -26,7 +28,6 @@ function ajouterPanier(prod){
 
 function afficherProduit(prod){
     return `
-    
         <div className="card h-100">
             <!-- Product image-->
             <img className="card-img-top" src="../Documents/SQL/images/produits/{$prod['id']}.jpg" alt="..."/>

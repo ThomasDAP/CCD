@@ -2,7 +2,7 @@ import {Produit} from './Produit.js';
 import panier from './Panier.js';
 
 window.addEventListener('load', (e) => {
-    if (document.location.id !== 'cart') {
+    if (!document.querySelector('#PageIdCart')) {
         console.log("Heuss chargé");
         let btnAjoutProd = document.querySelectorAll('#ajoutPanier');
         console.log(btnAjoutProd);
@@ -18,6 +18,8 @@ window.addEventListener('load', (e) => {
                 let prod = new Produit(prId, prTitre, prCateg, prDesc, prPoids);
 
                 panier.ajouterPanier(prod);
+                console.log('Ajout au panier de : ' + prod.titre);
+
 
 
             });
@@ -27,21 +29,14 @@ window.addEventListener('load', (e) => {
 
         let boutonPanier = document.querySelector('#button_cart');
         boutonPanier.addEventListener('click', (e) => {
-            document.location.href = `/afficherPanier/${panier.tab}`;
-        });
-        }else {
 
-
-
-
-
-        panier.tab.forEach((elem) => {
-            let str = panier.afficherProduit(elem);
-            let div = document.createElement('div');
-            div.setAttribute('className', 'col mb-5');
-            div.innerHTML = str;
-        })
+            //document.location.href = `/afficherPanier`;
+            const xhttp = new XMLHttpRequest();
+            xhttp.open('POST', 'http://localhost:8080/afficherPanier');
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send(`tab=${panier.tab}`);
+            });
     }
-
-
 });
+
+

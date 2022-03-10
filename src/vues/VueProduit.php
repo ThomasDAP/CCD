@@ -87,10 +87,10 @@ END;
                         </li>
                     </ul>
 
-                        <button class="btn btn-outline-dark" id="button_cart" >
+                        <button class="btn btn-outline-dark" id="button_cart">
                             <i class="bi-cart-fill me-1"></i>
                             Panier
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill"></span>
                         </button>
 
                 </div>
@@ -133,7 +133,7 @@ END;
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="../../Documents/Template/js/scripts.js"></script>
+        <!--<script src="../../Documents/Template/js/scripts.js"></script>-->
         
     </body>
 </html>
