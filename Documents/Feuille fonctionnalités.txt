@@ -1,1 +1,5 @@
 Feuille des fonctionnalités
+
+
+Récupération des produits sur la base
+Affichage des produits
