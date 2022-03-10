@@ -3,3 +3,5 @@ Feuille des fonctionnalités
 
 Récupération des produits sur la base
 Affichage des produits
+lien vers webetu : https://webetu.iutnc.univ-lorraine.fr/www/daprile3u/CCD/recupererProduits
+lien vers le git : https://github.com/ThomasDAP/CCD.git

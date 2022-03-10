@@ -25,7 +25,7 @@ class VueProduit
                     <div class="col mb-5"> 
                         <div class="card h-100">
             <!-- Product image-->
-                            <img class="card-img-top" src="../Documents/SQL/images/produits/{$prod['id']}.jpg" alt="..." />
+                            <img class="card-img-top" src="Documents/SQL/images/produits/{$prod['id']}.jpg" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -67,8 +67,8 @@ END;
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../../Documents/Template/css/styles.css" rel="stylesheet" />
-        <link href="../../Documents/Template/css/stylePerso.css" rel="stylesheet" />
+        <link href="Documents/Template/css/styles.css" rel="stylesheet" />
+        <link href="Documents/Template/css/stylePerso.css" rel="stylesheet" />
         
     </head>
     <body>
@@ -104,7 +104,7 @@ END;
                     <!-- <h1 class="display-4 fw-bolder">Shop in style</h1>
                     <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p> -->
                     <div class="titre_page"><p>L'Atelier : créateur de lien</p></div>
-                    <img src="../../Documents/Template/assets/logo.png" height="200px" width="200px"/>
+                    <img src="Documents/Template/assets/logo.png" height="200px" width="200px"/>
                     <div class="desc_page"><p>Gaëlle et Mégane, deux jeunes mosellanes se mobilisent pour lutter contre l’isolement, l’exclusion
                         et la précarité en proposant des solutions créatives et solidaires.
                     </p></div>
@@ -112,7 +112,7 @@ END;
             </div>
         </header>
         <!-- Section-->
-         <script type="module" src="../../Documents/Template/js/main.js"></script>
+         <script type="module" src="Documents/Template/js/main.js"></script>
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5" id="AfficheurProduits">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">

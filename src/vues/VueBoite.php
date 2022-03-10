@@ -28,7 +28,7 @@ class VueBoite
                     <div class="col mb-5"> 
                         <div class="card h-100">
             <!-- Product image-->
-                            <img class="card-img-top" src="../Documents/SQL/images/produits/{$prod['id']}.jpg" alt="..." />
+                            <img class="card-img-top" src="Documents/SQL/images/produits/{$prod['id']}.jpg" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -70,8 +70,8 @@ END;
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../../Documents/Template/css/styles.css" rel="stylesheet" />
-    <link href="../../Documents/Template/css/stylePerso.css" rel="stylesheet" />
+    <link href="Documents/Template/css/styles.css" rel="stylesheet" />
+    <link href="Documents/Template/css/stylePerso.css" rel="stylesheet" />
 </head>
 <body>
 <!-- Navigation-->
@@ -102,7 +102,7 @@ END;
 <!-- Header-->
 
 <!-- Section-->
-<script type="module" src="../../Documents/Template/js/main.js"></script>
+<script type="module" src="Documents/Template/js/main.js"></script>
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5" id="AfficheurProduits">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -127,7 +127,7 @@ END;
 <!--<script src="../../Documents/Template/js/scripts.js"></script>-->
 
 <script type="module">
-import panier from '../../Documents/Template/js/Panier.js'
+import panier from 'Documents/Template/js/Panier.js'
 
 let tab = JSON.parse(window.sessionStorage.getItem('tabPanier'));
 tab.forEach((elem) => {
