@@ -104,7 +104,7 @@ END;
                     <!-- <h1 class="display-4 fw-bolder">Shop in style</h1>
                     <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p> -->
                     <div class="titre_page"><p>L'Atelier : créateur de lien</p></div>
-                    <img src="../../Documents/Template/assets/logo.png" height="100px" width="100px"/>
+                    <img src="../../Documents/Template/assets/logo.png" height="200px" width="200px"/>
                     <div class="desc_page"><p>Gaëlle et Mégane, deux jeunes mosellanes se mobilisent pour lutter contre l’isolement, l’exclusion
                         et la précarité en proposant des solutions créatives et solidaires.
                     </p></div>

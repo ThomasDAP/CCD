@@ -1,21 +1,29 @@
 .py-5{
     background-color: #F2DCA4;
+    font-size: large;
+
 }
 
 .bg-light{
     background-color: #F2DCA4;
+    font-size: x-large;
+    font-family: 'Brush Script MT', cursive;
 }
 
 .bg-dark{
     background-color:#98C8C4;
+    font-size: x-large;
+    font-family: 'Brush Script MT', cursive;
 }
 
 .titre_page{
-    font-size: large;
-    font-family: Benedict, serif;
+    font-size: x-large;
+    font-family: 'Brush Script MT', cursive;
+
 }
 
 .card{
     background-color:#EAAD87;
+
 }
 
