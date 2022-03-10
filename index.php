@@ -25,7 +25,9 @@ $app->get('/',
 $app->get('/recupererProduits',
     function (Request $rq, Response $rs, $args): Response {
         $prods = produit::all();
-        return $rs->withJson($prods);
+        $vueProd = new \custumbox\vues\VueProduit($prods->toArray());
+        $rs->getBody()->write($vueProd->render(1));
+        return $rs;
 
     });
 

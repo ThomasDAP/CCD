@@ -2,76 +2,76 @@
 
 declare(strict_types=1);
 
-namespace mywishlist\vue;
+namespace custumbox\vues;
 
+use DOMDocument;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-class VueCreation
+class VueProduit
 {
-    public array $tab;
-    private \Slim\Container $container;
+    private array $tab;
 
-    public function __construct(array $tab, \Slim\Container $cont)
+
+    public function __construct(array $tab)
     {
         $this->tab = $tab;
-        $this->container = $cont;
     }
 
 
-    
+    public  function vueTousProduits() : string
+    {
+        $res = "";
+
+        foreach ($this->tab as $prod){
+            $textHtml = <<<END
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <div class="col mb-5"> 
+                        <div class="card h-100">
+            <!-- Product image-->" +
+                            <img class="card-img-top" src="../Documents/SQL/images/produits/{$prod['id']}.jpg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">{$prod['titre']}</h5>
+                                    <!-- Product price-->
+                                    {$prod['prix']} €
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <h6>{$prod['description']}</h6>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="">View options</a></div>
+                            </div>
+                        </div>
+                    </div>
+END;
+            $res = $res . $textHtml;
+        }
+        return $res;
+    }
 
 
 
 
 
-
-
-
-    public function render(int $select) : string{
+    public function render(int $select) : \DOMDocument
+    {
         $content = "";
         switch ($select){
-
+            case 1:
+                $content = $this->vueTousProduits();
+                break;
         }
 
-        $url_listes = $this->container->router->pathFor('listeDesListes');
-        $url_accueil = $this->container->router->pathFor('accueil');
-        $url_item1 = $this->container->router->pathFor('affUnItem', ['id' => 1]);
-        $creer_liste = $this->container->router->pathFor('traiteFormListe');
-        //$url_nosecure1 = $this->container->router->pathFor('partUneListe', ['token' => 'nosecure1']);
-        $url_liste1 = $this->container->router->pathFor('affUneListe', ['token'=> 'nosecure1']);
-        $url_modification = $this->container->router->pathFor('traiteFormModifListe', ['token_edition' => '17b2f1c3']);
-        $url_creationItem = $this->container->router->pathFor('traiteFormItem');
-        $url_itemModif1 = $this->container->router->pathFor('traiteFormModifItem', ['id' => '1']);
-        $html = <<<END
-        <!DOCTYPE html>
-            <html>
-                <head>
-                    <link rel="stylesheet" type="text/css" href="$url_accueil/web/css/style.css">
-                </head>
-                <body>
-                    <h1>My wishlist</h1>
-                    <nav id="NavMenu">
-                    <ul>
-                    <li><a href="$url_accueil">Accueil</a> </li>
-                    <li><a href="$url_listes">Les listes</a> </li>
-                    <li><a href="$url_item1 ">Item 1</a> </li>
-                    <li><a href="$url_liste1">La liste 1</a></li>
-                    <li><a href="$creer_liste ">Creer une liste</a> </li>
-                    <li><a href="$url_modification">Modification de la liste 1</a> </li>
-                    <li><a href="$url_creationItem">Creation d'un item</a></li>
-                    <li><a href="$url_itemModif1">Modification du premier item</a></li>
-                    </ul>
-                    </nav>
-                    <br/>
-                    <div class="content">
-                        $content
-                    </div>
-                </body>
-            <html>
-END;
+        $html = file_get_contents('../../Documents/Template/index.html');
+        $doc = new DOMDocument();
+        $doc->loadHTML('../../Documents/Template/index.html');
+        $aff = $doc->getElementById('AfficheurPrincipal');
+        $aff->append($content);
 
-        return $html;
+        return $doc;
     }
 }
 
