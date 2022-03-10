@@ -22,13 +22,13 @@ class VueProduit
     public  function vueTousProduits() : string
     {
         $res = "";
-
+        //ar_dump($this->tab);
         foreach ($this->tab as $prod){
             $textHtml = <<<END
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <div class="col mb-5"> 
                         <div class="card h-100">
-            <!-- Product image-->" +
+            <!-- Product image-->
                             <img class="card-img-top" src="../Documents/SQL/images/produits/{$prod['id']}.jpg" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
@@ -36,7 +36,7 @@ class VueProduit
                                     <!-- Product name-->
                                     <h5 class="fw-bolder">{$prod['titre']}</h5>
                                     <!-- Product price-->
-                                    {$prod['prix']} €
+                                    {$prod['poids']} kg
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -54,7 +54,9 @@ END;
 
 
 
-
+    public function getContentFile($file){
+        
+    }
 
     public function render(int $select) : \DOMDocument
     {
@@ -65,11 +67,12 @@ END;
                 break;
         }
 
-        $html = file_get_contents('../../Documents/Template/index.html');
+
         $doc = new DOMDocument();
         $doc->loadHTML('../../Documents/Template/index.html');
-        $aff = $doc->getElementById('AfficheurPrincipal');
-        $aff->append($content);
+        $aff = $doc->getElementById('AfficheurProduits');
+        var_dump($doc);
+        var_dump($aff);
 
         return $doc;
     }
