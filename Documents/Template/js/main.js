@@ -18,7 +18,6 @@ window.addEventListener('load', (e) => {
                 let prod = new Produit(prId, prTitre, prCateg, prDesc, prPoids);
 
                 panier.ajouterPanier(prod);
-                console.log('Ajout au panier de : ' + prod.titre);
 
 
 
@@ -30,13 +29,23 @@ window.addEventListener('load', (e) => {
         let boutonPanier = document.querySelector('#button_cart');
         boutonPanier.addEventListener('click', (e) => {
 
-            //document.location.href = `/afficherPanier`;
-            const xhttp = new XMLHttpRequest();
+            document.location.href = `/afficherPanier`;
+            /*const xhttp = new XMLHttpRequest();
             xhttp.open('POST', '/afficherPanier');
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send(`tab=${panier.tab}`);
-            });
+            });*/
+    });
+}else {
+        panier.tab.forEach((elem) => {
+            let str = panier.afficherProduit(elem);
+            let div = document.createElement('div');
+            div.setAttribute('classeName', 'col mb-5');
+            div.innerHTML = str;
+
+            let aff = document.querySelector('#AfficheurProduits');
+            aff.append(div);
+        })
     }
+
 });
-
-

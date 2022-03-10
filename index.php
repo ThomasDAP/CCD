@@ -32,15 +32,9 @@ $app->get('/recupererProduits',
 
     });
 
-$app->post('/afficherPanier', function (Request $rq, Response $rs, $args): Response {
-    $tab = [];
-    if (isset($_POST['tab'])){
-        $tab = json_encode($_POST['tab']);
-    }
+$app->get('/afficherPanier', function (Request $rq, Response $rs, $args): Response {
 
-
-    var_dump($tab);
-    $vueBoite = new \custumbox\vues\VueBoite((array)$tab);
+    $vueBoite = new \custumbox\vues\VueBoite([]);
     $rs->getBody()->write($vueBoite->render(1));
     return $rs;
     });

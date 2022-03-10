@@ -27,10 +27,11 @@ function ajouterPanier(prod){
 }
 
 function afficherProduit(prod){
+    console.log(prod.titre);
     return `
         <div className="card h-100">
             <!-- Product image-->
-            <img className="card-img-top" src="../Documents/SQL/images/produits/{$prod['id']}.jpg" alt="..."/>
+            <img className="card-img-top" src="../Documents/SQL/images/produits/${prod.id}.jpg" alt="..."/>
             <!-- Product details-->
             <div className="card-body p-4">
                 <div className="text-center">
