@@ -148,9 +148,7 @@ END;
 
         $res = $this->getHeader();
 
-        $res = $res . $content . $this->getFooter();
-        
-        return $res;
+        return $res . $content . $this->getFooter();
     }
 }
 
