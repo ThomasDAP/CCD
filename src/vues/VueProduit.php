@@ -38,7 +38,7 @@ class VueProduit
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <h6>{$prod['description']}</h6>
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="" id="ajoutPanier">Ajouter à la boite</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" id="ajoutPanier" prodId="{$prod['id']}" prodCateg="${prod['categorie']}"prodTitre="${prod['titre']}" prodDesc="${prod['description']}" prodPoid="${prod['poids']}">Ajouter à la boite</a></div>
                             </div>
                         </div>
                     </div>
@@ -69,8 +69,11 @@ END;
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../../Documents/Template/css/styles.css" rel="stylesheet" />
         <link href="../../Documents/Template/css/stylePerso.css" rel="stylesheet" />
+        
     </head>
     <body>
+        
+        
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -78,16 +81,9 @@ END;
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">All Products</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                            </ul>
+                            
                         </li>
                     </ul>
 
@@ -101,6 +97,7 @@ END;
             </div>
         </nav>
         <!-- Header-->
+
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
@@ -115,6 +112,7 @@ END;
             </div>
         </header>
         <!-- Section-->
+         <script type="module" src="../../Documents/Template/js/main.js"></script>
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5" id="AfficheurProduits">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -127,6 +125,7 @@ END;
                 </div>
             </div>
         </section>
+        
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
@@ -134,7 +133,8 @@ END;
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="../../Documents/Template/js/scripts.js"></script>
+        
     </body>
 </html>
         

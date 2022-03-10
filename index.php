@@ -32,6 +32,11 @@ $app->get('/recupererProduits',
 
     });
 
+$app->get('/afficherPanier/{panier}', function (Request $rq, Response $rs, $args): Response {
+    $vueBoite = new \custumbox\vues\VueProduit($args);
+    $rs->getBody()->write($vueBoite->render(1));
+    return $rs;
+    });
 
 try {
     $app->run();

@@ -24,13 +24,33 @@ function ajouterPanier(prod){
 
 }
 
-function afficherPanier() {
-
+function afficherProduit(prod){
+    return `
+    
+        <div className="card h-100">
+            <!-- Product image-->
+            <img className="card-img-top" src="../Documents/SQL/images/produits/{$prod['id']}.jpg" alt="..."/>
+            <!-- Product details-->
+            <div className="card-body p-4">
+                <div className="text-center">
+                    <!-- Product name-->
+                    <h5 className="fw-bolder">${prod.titre}</h5>
+                    <!-- Product price-->
+                    ${prod.poids} kg
+                </div>
+            </div>
+            <!-- Product actions-->
+            <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                <h6>${prod.desc}</h6>
+            </div>
+        </div>
+  
+    `;
 }
-
 
 
 export default {
     tab,
-    ajouterPanier
+    ajouterPanier,
+    afficherProduit
 }
